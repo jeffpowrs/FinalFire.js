@@ -1,6 +1,6 @@
 # FinalFire.js
 
-A reusable object that collects asynchronous events and triggers it's own final event once all others have been fired. Final Fire currently uses jQuery to bind and trigger events, though it would be easy to adjust for underscore or another javascript framework.
+A light-weight reusable object that collects asynchronous events and triggers it's own final event once all others have been fired. Final Fire currently uses jQuery to bind and trigger events, though it would be easy to adjust for underscore or another javascript framework. The minified version is only 1,133 bytes.
 
 ## How to use FinalFire.
 
@@ -19,5 +19,3 @@ $(xyz).on('kittens', function(e){ *... Do something amazing ...* });
 $(xyz).trigger('cats');
 ```
 ##### That's all folks.
-
-Will refactor soon.

@@ -16,37 +16,34 @@ function FinalFire ( config ) {
     }, config 
   );
 
-  this.wasTriggered = {}
+  this.wasTriggered = {}  // Keep track of the events triggered
   this.subEventArrayLen = this.config.subEventArray.length;
 
-  this.prepareEvents( this.config.subEventArray );
-
+  this.setAllTriggered( false, true );
 }
 
 FinalFire.prototype = {
-  prepareEvents: function (subEventArray) {
-    // For each event we want to listen to create a listener and
-    // boolean for it in the wasTrigger object.
-    
-    var _this = this
-      , eventsToListenString = '';
+  bind: function ( eventListenerString ) {
 
-    for ( var i = 0; i < this.subEventArrayLen; i++ ) {
-      this.wasTriggered[ subEventArray[i] ] = false;
-      eventsToListenString += subEventArray[i] + ' ';
-    }
-    
-    $(this).on( eventsToListenString, function (e) {
+    var _this = this;
+
+    $(this).on( eventListenerString, function (e) {
       _this.wasTriggered[e.type] = true;
       if ( _this.wasAllTriggered(_this) )
         _this.emit( _this );
     });
 
   },
-  resetAllTriggered: function () {
+  setAllTriggered: function (booleanValue, bind) {
+    var eventListenerString = '';
+
     for ( var i = 0; i < this.subEventArrayLen; i++ ) {
-      this.wasTriggered[ this.config.subEventArray[i] ] = false;
+      this.wasTriggered[ this.config.subEventArray[i] ] = booleanValue;
+      if (bind) eventListenerString += this.config.subEventArray[i] + ' ';
     }
+ 
+    if (bind) this.bind( eventListenerString );
+ 
   },
   wasAllTriggered: function (_this) {
     for ( var i = 0; i < _this.subEventArrayLen; i++ ) {
@@ -60,9 +57,9 @@ FinalFire.prototype = {
   },
   emit: function (_this) {
     $(_this).trigger( _this.config.finalEvent );
-    if (_this.config.reset)
-      _this.resetAllTriggered();
+    if ( _this.config.reset )
+      _this.setAllTriggered( false );
     else
-      $(_this).off(_this.config.finalEvent);
+      $(_this).off( _this.config.finalEvent );
   }
 }
