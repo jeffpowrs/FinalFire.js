@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Place favicon.ico and apple-touch-icon(s) in the root directory -->
+
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+        <script src="js/vendor/modernizr-2.7.0.min.js"></script>
+    </head>
+    <body>
+
+        <h1>FinalFire.js Demo</h1>
+        <h2>Click each button in any order.</h2>
+        <button class="cats">Cats</button>
+        <button class="frogs">Frogs</button>
+        <button class="robots">Robots</button>
+
+        <h2>With Reset.</h2>
+        <button class="fish">Fish</button>
+        <button class="crabs">Crabs</button>
+        <button class="ostrich">Ostrich</button>
+
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+        <script src="finalfire.js"></script>
+        <script>
+            var xyz = new FinalFire ({ subEventArray: ['cats', 'robots', 'frogs'], finalEvent: 'kittens'});
+            var qwx = new FinalFire ({ subEventArray: ['fish', 'crabs', 'ostrich'], finalEvent: 'doody', reset: true});
+            $(xyz).on('kittens', function(e){ alert('final event '+e.type+' triggered.') });
+            $(qwx).on('doody', function(e){ alert('final event '+e.type+' triggered.') });
+            $('button').click(function(e){ 
+                var newE = (e.target || window.event.srcElement).className;
+                $(xyz).trigger(newE);
+                $(qwx).trigger(newE);
+            });
+        </script>
+
+    </body>
+</html>
