@@ -5,19 +5,19 @@ A reusable object that collects asynchronous events and triggers it's own final 
 ## How to use FinalFire.
 
 #### Create a new instance of FinalFire passing in a configuration object.
-'''javascript
+```javascript
 var xyz = new FinalFire ({ subEventArray: ['cats', 'robots', 'frogs'], finalEvent: 'kittens'});
-'''
+```
 
 #### Listen for the final event.
-'''javascript
+```javascript
 $(xyz).on('kittens', function(e){ *... Do something amazing ...* });
-'''
+```
 
 #### Trigger each event.
-'''javascript
+```javascript
 $(xyz).trigger('cats');
-'''
+```
 ##### That's all folks.
 
 Will refactor soon.
