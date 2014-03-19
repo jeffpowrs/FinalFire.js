@@ -1,0 +1,40 @@
+{
+    "name": "finalfire",
+    "title": "Final Fire",
+    "description": "Have you ever needed to execute some code after a number of asynchronous events or operations occur? Final Fire is a light-weight reusable plugin that helps you keep track of asynchronous events using a pub/sub methodology.", 
+    "keywords": [
+        "events",
+        "async",
+        "asynchronous",
+        "observer",
+        "publisher",
+        "subscriber",
+        "pubsub",
+        "event-manager"
+    ],
+    "version": "0.0.1",
+    "author": {
+        "name": "Jeff Powers",
+        "url": "http://jeffpow.rs"
+    },
+    "maintainers": [
+        {
+            "name": "Jeff Powers",
+            "email": "hell@jeffpow.rs",
+            "url": "http://jeffpow.rs"
+        }
+    ],
+    "licenses": [
+        {
+            "type": "MIT",
+            "url": "https://github.com/jeffpowrs/LiquidModal.js/blob/master/LICENSE"
+        }
+    ],
+    "bugs": "https://github.com/jeffpowrs/FinalFire.js/issues",
+    "homepage": "https://github.com/jeffpowrs/FinalFire.js",
+    "docs": "https://github.com/jeffpowrs/FinalFire.js",
+    "download": "https://github.com/jeffpowrs/FinalFire.js",
+    "dependencies": {
+        "jquery": ">=1.5"
+    }
+}

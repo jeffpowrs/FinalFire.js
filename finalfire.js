@@ -9,11 +9,11 @@
 
 function FinalFire ( config ) {
 
-  this.config = $.extend( {}, true, 
+  this.config = $.extend( {}, true,
     { subEventArray: [],                          // Events to listen for -- Array of Strings
       finalEvent: 'complete',                     // Event to trigger at the end -- String
       reset: false                                // Reset at the end for multiple firings -- Boolean
-    }, config 
+    }, config
   );
 
   this.wasTriggered = {}  // Keep track of the events triggered
@@ -41,9 +41,9 @@ FinalFire.prototype = {
       this.wasTriggered[ this.config.subEventArray[i] ] = booleanValue;
       if (bind) eventListenerString += this.config.subEventArray[i] + ' ';
     }
- 
+
     if (bind) this.bind( eventListenerString );
- 
+
   },
   wasAllTriggered: function (_this) {
     for ( var i = 0; i < _this.subEventArrayLen; i++ ) {
